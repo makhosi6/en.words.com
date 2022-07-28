@@ -33,3 +33,8 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('/user-x',function () {
+    return "YES";
+});
