@@ -23,14 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 
-Route::apiResource('words', WordController::class);
+Route::apiResource('words', WordController::class)->middleware('auth:sanctum');
 
 
 
-// hnVhlxJSzvyoKGSh9DRcDNnEZd1yWSdDx8GWRs6H
-
-
-//  Dlv6azU81DgmPyb3ZBeCoXwPiBz7Dv4hPANiAVUI  <==
-
-
-//
+//  A8E6YziXl3RmoYAq1LjIH8f8LZtEbrDDsOEqAs8i
