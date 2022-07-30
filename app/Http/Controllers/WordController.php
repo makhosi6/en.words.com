@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Word;
 use Illuminate\Http\Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class WordController extends Controller
 {
@@ -25,7 +26,19 @@ class WordController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            ///create word
+            $word =  Word::create([
+                'key' => $request->key,
+                'word' => $request->word,
+                'category'=> $request->category,
+                'source' => $request->source,
+            ]);
+            ///save word
+            $word->save();
+        } catch (\Throwable $th) {
+            abort(403);
+        }
     }
 
     /**
@@ -36,7 +49,8 @@ class WordController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return Word::where('id', $id)->first();
     }
 
     /**
@@ -49,7 +63,7 @@ class WordController extends Controller
     public function update(Request $request, $id)
     {
         //
-
+        abort(403);
     }
 
     /**
@@ -61,5 +75,6 @@ class WordController extends Controller
     public function destroy($id)
     {
         //
+        abort(403);
     }
 }
