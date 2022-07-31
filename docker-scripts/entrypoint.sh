@@ -14,6 +14,8 @@ fi
 role=${CONTAINER_ROLE:-app}
 
 if [ "$role" = "app" ]; then
+    npm install
+    npm build
     php artisan migrate
     php artisan key:generate
     php artisan cache:clear
