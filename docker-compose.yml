@@ -74,14 +74,14 @@ services:
             - ./:/var/www
 
     # Node Server
-    nodeworker:
-        build:
-            context: .
-            target: node
-        volumes:
-            - .:/usr/src
-            - ./node_modules:/usr/src/node_modules
-        tty: true
+    # nodeworker:
+    #     build:
+    #         context: .
+    #         target: node
+    #     volumes:
+    #         - .:/usr/src
+    #         - ./node_modules:/usr/src/node_modules
+    #     tty: true
 
 volumes:
     sql-db-volume: ~
