@@ -34,8 +34,10 @@ class WordController extends Controller
                 'category'=> $request->category,
                 'source' => $request->source,
             ]);
+
             ///save word
             $word->save();
+            return response()->json($word, 201);
         } catch (\Throwable $th) {
             abort(403);
         }
