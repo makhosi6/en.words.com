@@ -2,7 +2,7 @@ version: "3.8"
 services:
 
     # PHP Service
-    php:
+    frontend:
         build:
             context: .
             target: php
@@ -21,7 +21,7 @@ services:
             - redis
 
     # PHP Service
-    websocket:
+    wsserver:
         build:
             context: .
             target: php
@@ -40,7 +40,7 @@ services:
             - redis
 
     # Database Server
-    database:
+    dbserver:
         image: mysql:8.0
         ports:
             -   3306:3306
@@ -53,14 +53,14 @@ services:
             - sql-db-volume:/var/lib/mysql
 
     # Redis Server
-    redis:
+    redisasservice:
         image: redis:alpine
         command: redis-server --appendonly yes --requirepass  "${REDIS_PASSWORD}"
         ports:
             - 6379:6379
 
     # Queue Server
-    queue:
+    queueservice:
         build:
             context: .
             target: php
@@ -74,7 +74,7 @@ services:
             - ./:/var/www
 
     # Node Server
-    node:
+    nodeworker:
         build:
             context: .
             target: node
