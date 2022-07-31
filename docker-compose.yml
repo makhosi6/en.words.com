@@ -15,7 +15,7 @@ services:
         volumes:
             - ./:/var/www
         ports:
-            - 6001:8000
+            - 6001:2323
         depends_on:
             - database
             - redis
