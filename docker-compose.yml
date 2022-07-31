@@ -18,7 +18,7 @@ services:
             - 2323:2323
         depends_on:
             - dbserver
-            - redis
+            - redisasservice
 
     # PHP Service
     wsserver:
