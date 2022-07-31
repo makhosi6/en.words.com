@@ -2,7 +2,7 @@ version: "3.8"
 services:
 
     # PHP Service
-    frontend:
+    backend:
         build:
             context: .
             target: php
@@ -17,7 +17,7 @@ services:
         ports:
             - 2323:2323
         depends_on:
-            - database
+            - dbserver
             - redis
 
     # PHP Service
@@ -36,8 +36,8 @@ services:
         ports:
             - 6001:6001
         depends_on:
-            - database
-            - redis
+            - dbserver
+            - redisasservice
 
     # Database Server
     dbserver:
