@@ -25,5 +25,6 @@ COPY . .
 
 RUN npm install --global cross-env
 RUN npm install
+RUN npm build
 
 VOLUME /var/www/node_modules
